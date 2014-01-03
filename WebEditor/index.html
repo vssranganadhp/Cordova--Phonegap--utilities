@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="CodeMirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="style/style.css?v1" />
+    <link rel="stylesheet" href="style/devTools.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/neat.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/elegant.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/erlang-dark.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/night.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/monokai.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/cobalt.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/eclipse.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/rubyblue.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/lesser-dark.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/xq-dark.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/ambiance.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/blackboard.css" />
+    <link rel="stylesheet" href="CodeMirror/theme/vibrant-ink.css" />
+    <link rel="stylesheet" href="CodeMirror/lib/util/dialog.css" />
+    <link rel="stylesheet" href="CodeMirror/lib/util/show-hint.css">
+    <script src="jquery.js"></script>
+    <script src="CodeMirror/html/HtmlTags.json"></script>
+    <script src="CodeMirror/html/HtmlAttributes.json"></script>
+    <script src="codemirror-compressed.js"></script>
+    <script src="CodeMirror/lib/util/show-hint_new.js?v1"></script>
+    <script src="CodeMirror/lib/util/html-hint.js?v1"></script>
+    <script src="CodeMirror/addon/fold/foldcode.js"></script>
+    <!--script src="CodeMirror/lib/util/php-hint.js"></script-->
+    <script src="Mousetrap.js?v1"></script>
+    <script src="bind_keys.js?v1"></script>
+    <script src="file/FileSystem.js?v1"></script>
+    <script src="WebEditor.js?v1"></script>
+</head>
+<body>
+    <div id="topMenu">
+        <li>File</li>
+        <li>Edit</li>
+    </div>
+    <div id="project_nav">
+        <ul></ul>
+        <div>
+            <details>
+                <summary>Files in directory</summary>
+            </details>
+        </div>
+    </div>
+    <div id="seperator"></div>
+    <div id="page_editor">
+        <div class="head">
+            <tt></tt>
+            <p>Select a theme: <select onchange="selectTheme(this.value)" id=select>
+                <option selected>default</option>
+                <option>ambiance</option>
+                <option>blackboard</option>
+                <option>cobalt</option>
+                <option>eclipse</option>
+                <option>elegant</option>
+                <option>erlang-dark</option>
+                <option>lesser-dark</option>
+                <option>monokai</option>
+                <option>neat</option>
+                <option>night</option>
+                <option>rubyblue</option>
+                <option>vibrant-ink</option>
+                <option>xq-dark</option>
+            </select>
+            </p>
+        </div>
+        <textarea id="code" name="code"></textarea>
+    </div>
+    <div class="soft-context-menu-glass-pane" tabindex="0" id="menu_cont">
+        <div class="soft-context-menu" tabindex="0" id="contextmenu">
+            <div class="soft-context-menu-item" data-item="createNewFile"><span>New File</span><span>⌘K</span></div>
+            <div class="soft-context-menu-separator"><div class="separator-line"></div></div>
+            <div class="soft-context-menu-item" data-item="wordWrap"><span class="soft-context-menu-item-checkmark">✓ </span>Word Wrap</div>
+        </div>
+    </div>
+    <progress max="42"></progress>
+    <div class="help">
+        <p>Keyboard shortcuts</p>
+        <hr>
+    </div>
+</body>
+</html>
