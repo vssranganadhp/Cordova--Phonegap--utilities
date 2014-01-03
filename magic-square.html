@@ -1,0 +1,107 @@
+<html>
+<style>
+	div{
+		float:left;
+		text-align:center;
+	}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+	num = new Array();
+	n=parseInt(prompt("Enter an odd number"));
+	var sq = n*n;
+	var horMid = new Array();
+	var hor = new Array();
+	a=n+2;
+	for(i=1;i<n;i++){num.push(a)}
+	function print(){
+		if(n%2 == 0){
+			document.write("Only odd numbers are required to construct a magic square...!");
+		} else {
+			pos_1 = (sq)-(n-1)/2;
+			horMid.push(pos_1)
+			for(i=0;i<n-1;i++){
+				horMid.push(horMid[horMid.length-1]-n);
+			}
+			hor[0] = 1;
+			for(i=0;i<n-1;i++){
+				hor.push(hor[hor.length-1]+n+1)
+			}
+			sum = n*32;
+			$("#tab").css("width",sum+"px");
+			var str = "";
+			for(i=1;i <= sq;i++){
+				str += '<div id="d'+i+'" style="float:left; width:30px; height:30px; border:1px solid black"></div>';
+			}
+			$("#tab").html(str);
+			hor.reverse();
+			for(i=1;i<=n;i++){
+				changeArray(i);
+				arr = new Array();
+				arr[(n-1)/2] = hor[i-1];
+				for(k=(n-1)/2;k>0;k--){
+				     var cou = arr[k]-num[k-1];
+				     if(cou < 1){
+					 cou = cou + sq;
+				     }
+				     arr[k-1] = cou;
+				}
+				for(j=(n-1)/2;j<n-1;j++){
+				     var cou = arr[arr.length-1]+num[arr.length-1];
+				     if(cou > sq){
+					 cou = cou - sq;
+				     }
+				     arr.push(cou);
+				}
+				textThis(arr,i);
+			}
+		}
+	}
+	function changeArray(row){
+		if(row%2 == 1){
+			if(row == 1){
+				num[((n+1)/2)-1] = 2;
+			} else {
+				swapValueToRight(num,num.lastIndexOf(2));
+			}
+		} else {
+			if(row == 2){
+				num[0] = 2;
+			} else {
+				swapValueToRight(num,num.indexOf(2));
+			}
+		
+		}
+	}
+	function swapValueToRight(array, index){
+		var curr_pos_2 = array[index];
+		var next_num = array[index+1];
+		var temp = "";
+		if(next_num == undefined){
+			temp = index;
+		} else {
+			curr_pos_2 = curr_pos_2 + next_num;
+			next_num = curr_pos_2 - next_num;
+			curr_pos_2 = curr_pos_2 - next_num;
+			array[index+1] = next_num;
+			array[index] = curr_pos_2;
+		}
+		if(temp == index){
+			array[index] = a;
+		}
+		return array;
+	}
+	function textThis(arr,b){
+		for(j=1;j<=n;j++){
+			var pr = (b-1)*n+j;
+			$("#d"+pr).text(arr[j-1]);
+		}
+	}
+</script>
+<script>
+	
+</script>
+<body onLoad="print();">
+	<div id="tab" style="height:100px;"></div>
+</body>
+</html>
