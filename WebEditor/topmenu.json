@@ -1,0 +1,34 @@
+{
+    "File":{
+        "gap1":"gap",
+        "New File":"⌘K",
+        "Open":"⌘O",
+        "Save":"⌘S",
+        "gap2":"gap"
+    },
+    "Edit":{
+        "gap1":"gap",
+        "Undo":"⌘Z",
+        "Redo":"⇧⌘Z",
+        "seperator1":"seperator",
+        "Cut":"⌘X",
+        "Copy":"⌘C",
+        "Paste":"⌘V",
+        "gap2":"gap"
+    },
+    "View":{
+        
+    },
+    "Navigate":{
+        
+    },
+    "Debug":{
+        
+    },
+    "Window":{
+        
+    },
+    "Help":{
+        
+    }
+}
